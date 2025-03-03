@@ -18,7 +18,7 @@ jobs:
         with:
           ruby-version: 3.1
 
-      - name: Install Bundler & Jekyll
+      - name: Install Jekyll Dependencies
         run: |
           gem install bundler
           bundle install
@@ -26,7 +26,7 @@ jobs:
       - name: Build Jekyll Site
         uses: actions/jekyll-build-pages@v1
         with:
-          source: src  # Pastikan ini sesuai dengan folder Jekyll kamu
+          source: .  # Pastikan ini sesuai dengan folder Jekyll kamu
           destination: _site
 
       - name: Deploy to GitHub Pages
