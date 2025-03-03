@@ -1,0 +1,250 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', serif;
+  font-size: 18px;
+  color: #096a68;
+}
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* lain-lain */
+.material-symbols-outlined {
+  color: #096a68;
+}
+.active {
+  background-color: #fcca40;
+  padding: 2px;
+  border-radius: 10px;
+  display: flex;
+}
+.container {
+  display: grid;
+  grid-template-areas: 'aside main';
+  grid-template-columns: 0.5fr 2fr;
+}
+.container .navbar-side {
+  grid-area: aside;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+.container .main-content,
+.main-content-arsip,
+.main-content-tambah-buku {
+  grid-area: main;
+  background-color: rgba(227, 240, 234, 0.843);
+}
+ 
+/* Navbar-side */
+.menu {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 4rem;
+}
+ 
+.menu .menu-list {
+  margin: 0 30px;
+}
+.menu .menu-list ul {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(70px, 0.5fr));
+}
+.menu-list ul {
+  margin: 10px 0;
+}
+ 
+/* Main Notes */
+/* Tambah List Buku */
+.main-content-tambah-buku {
+  display: grid;
+  place-items: center;
+}
+.form-card {
+  background-color: #fcca40;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow:
+    10px 10px 20px #b8bec7,
+    -10px -10px 20px #a39d9d;
+  text-align: center;
+  width: 650px;
+  height: 500px;
+  display: grid;
+}
+/* Form Input */
+/* Input Fields */
+.form-group {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  margin: 20px 50px;
+}
+ 
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+}
+#isi {
+  height: 150px;
+}
+input,
+textarea {
+  vertical-align: top;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  resize: none;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow:
+    inset 3px 3px 6px #096a68,
+    inset -3px -3px 6px #ffffff;
+  outline: none;
+  background: #ffffff;
+}
+ 
+/* Button */
+#submit {
+  margin: 30px 150px;
+}
+ 
+/* Daftar List Buku */
+.daftar-list-buku {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'card-list';
+  grid-template-rows: repeat(auto-fit, minmax(80px, auto));
+  margin: 70px 50px;
+}
+/* Header */
+.header-daftar-buku {
+  grid-area: header;
+}
+.header-daftar-buku h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 620;
+}
+.daftar-list-buku hr {
+  width: 100%;
+  background-color: #137b79;
+  height: 5px;
+}
+/* Isi */
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px;
+  max-width: 270px;
+  background-color: rgb(255, 255, 255);
+  gap: 1rem;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+.card .createdAt {
+  font-size: small;
+}
+.card .status {
+  display: none;
+}
+.card .title {
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.card .title .material-symbols-outlined {
+  color: #fcca40;
+  width: 8px;
+  word-wrap: break-word;
+}
+.card .isi {
+  font-size: 16px;
+  word-wrap: break-word;
+}
+.card .id {
+  font-size: 12px;
+  display: grid;
+  align-self: end;
+  justify-self: end;
+  margin: 5px;
+  background-color: #fcca40;
+  padding: 1px 10px;
+  border-radius: 5px;
+}
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+ 
+.card button {
+  background-color: #fcca40;
+  border: none;
+  color: #096a68;
+  font-weight: 600;
+  padding: 4px;
+  width: 100px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+ 
+/* Arsip Buku */
+.main-content-arsip,
+.main-content {
+  display: grid;
+  grid-template-rows: 120px auto;
+  width: 100%;
+}
+.header-content {
+  padding: 50px 50px 0px 50px;
+  margin: 0;
+  display: grid;
+}
+.header-content h2 {
+  display: grid;
+  align-items: center;
+  margin: 0;
+}
+ 
+.header-content hr {
+  width: 100%;
+  background-color: #137b79;
+  height: 5px;
+  border: none;
+}
+.book-list-card-arsip,
+.book-list-card {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+}
