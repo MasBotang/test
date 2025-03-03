@@ -1,0 +1,36 @@
+name: Deploy Jekyll Site
+
+on:
+  push:
+    branches:
+      - main  # Sesuaikan dengan branch utama kamu
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+
+      - name: Install Bundler & Jekyll
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build Jekyll Site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: src  # Pastikan ini sesuai dengan folder Jekyll kamu
+          destination: _site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
